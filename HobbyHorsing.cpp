@@ -34,8 +34,10 @@ int main()
     cin >> startX >> startY;
 
     // Проверка на допустимость координат полученных от пользователя
-    if (!isCanMove(startX, startY))
-        cout << "Не корректные координаты" << endl;
+    if (!isCanMove(startX, startY)) {
+        cout << "Не корректные координаты, размер поля 6 на 6" << endl;
+        return 0;
+    }        
 
     MoveHorse(startX, startY, 0, ChessDesk);
 }
@@ -85,7 +87,7 @@ bool MoveHorse(int x, int y, int moveCount, int desk[deskBorder][deskBorder]) {
             }       
         }
 
-        // Если на шагнул, опять помечаю как не хоженную клетку
+        // Если не шагнул, опять помечаю как нехоженную клетку
         desk[x][y] == -1;
     }
 
